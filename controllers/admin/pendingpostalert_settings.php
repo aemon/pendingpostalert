@@ -14,7 +14,7 @@
 * 
 */
 
-class PendingPostAlert_Settings_Controller extends Admin_Controller
+class Pendingpostalert_Settings_Controller extends Admin_Controller
 {
 	public function index()
 	{
@@ -56,7 +56,7 @@ class PendingPostAlert_Settings_Controller extends Admin_Controller
             if ($post->validate())
             {
                 // Yes! everything is valid
-                $pendingpostalert = new PendingPostAlert_Model(1);
+                $pendingpostalert = new Pendingpostalert_Settings_Model(1);
                 $pendingpostalert->pendingpostalert_emails = $post->pendingpostalert_emails;
                 $pendingpostalert->save();
 
@@ -83,11 +83,11 @@ class PendingPostAlert_Settings_Controller extends Admin_Controller
         else
         {
             // Retrieve Current Settings
-            $pendingpostalert = ORM::factory('pendingpostalert', 1);
+            $pendingpostalert_settings = ORM::factory('pendingpostalert_settings', 1);
 
             $form = array
             (
-                'pendingpostalert_emails' => $pendingpostalert->pendingpostalert_emails,
+                'pendingpostalert_emails' => $pendingpostalert_settings->pendingpostalert_emails,
             );
         }
 		

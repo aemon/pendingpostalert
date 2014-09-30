@@ -30,15 +30,15 @@ class PendingPostAlert_Install {
 	{
 		// Create the database tables.
 		// Also include table_prefix in name
-		//$this->db->query('DROP TABLE `'.Kohana::config('database.default.table_prefix').'pendingpostalert`');
-		$this->db->query('CREATE TABLE IF NOT EXISTS `'.Kohana::config('database.default.table_prefix').'pendingpostalert` (
+		//$this->db->query('DROP TABLE `'.Kohana::config('database.default.table_prefix').'pendingpostalert_settings`');
+		$this->db->query('CREATE TABLE IF NOT EXISTS `'.Kohana::config('database.default.table_prefix').'pendingpostalert_settings` (
 								`id` tinyint(4) NOT NULL,
 								`pendingpostalert_emails` text DEFAULT NULL,
 								PRIMARY KEY (`id`)
 							) ENGINE=MyISAM DEFAULT CHARSET=utf8;');
 		
 		// Create settings row
-		$this->db->query('INSERT INTO `'.Kohana::config('database.default.table_prefix').'pendingpostalert` (`id`) VALUES (1)');
+		$this->db->query('INSERT INTO `'.Kohana::config('database.default.table_prefix').'pendingpostalert_settings` (`id`) VALUES (1)');
 	}
 
 	/**
@@ -46,6 +46,6 @@ class PendingPostAlert_Install {
 	 */
 	public function uninstall()
 	{
-		$this->db->query('DROP TABLE `'.Kohana::config('database.default.table_prefix').'pendingpostalert`');
+		$this->db->query('DROP TABLE `'.Kohana::config('database.default.table_prefix').'pendingpostalert_settings`');
 	}
 }
